@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: planning-mantenimiento-romero
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: FIREBASE_SERVICE_ACCOUNT_JSON
+        sync: false
+      - key: FIREBASE_DATABASE_URL
+        value: https://rotacionmtto-default-rtdb.firebaseio.com
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: MTTO_USERNAME
+        value: mtto
+      - key: MTTO_PASSWORD
+        sync: false

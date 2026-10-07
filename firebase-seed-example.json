@@ -1,0 +1,23 @@
+{
+  "users": {
+    "UID_DEL_ADMIN": {
+      "role": "admin",
+      "name": "Administrador",
+      "username": "admin"
+    },
+    "UID_DEL_MANTENIMIENTO": {
+      "role": "mantenimiento",
+      "name": "Mantenimiento",
+      "username": "mtto"
+    }
+  },
+  "appData": {
+    "rotation": [
+      "Mañana",
+      "Noche",
+      "Tarde"
+    ],
+    "cycleStart": "2026-09-28"
+  },
+  "calendar": {}
+}

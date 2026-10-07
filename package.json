@@ -1,0 +1,14 @@
+{
+  "name": "planning-mantenimiento-romero",
+  "version": "6.0.0",
+  "private": true,
+  "description": "Planning de mantenimiento Romero con login por usuario y contraseña, sin correo.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "firebase-admin": "^13.0.2"
+  }
+}
