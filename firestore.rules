@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Planning (igual que el resto de las apps de la suite: el control de acceso
+    // es el login de la app, no Firebase Authentication)
+    match /planning/{doc} {
+      allow read, write: if true;
+    }
+
+    // ⚠️ Pegá acá abajo las reglas que ya tenés para el resto de las
+    // colecciones (partes, novedades, etc.). No las pises.
+  }
+}
