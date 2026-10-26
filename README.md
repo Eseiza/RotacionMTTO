@@ -3,7 +3,7 @@
 App individual para la rotación de mantenimiento (calendario mensual, personas, grupos, excepciones y configuración).
 HTML + CSS + JS puro, sin build ni Node. Datos en Firestore (`planning/config`), en tiempo real.
 
-## Acceso (igual que la app de Calidad)
+## Acceso 
 Pantalla de login con **Rol + Usuario + Contraseña**. Los usuarios están escritos en `js/firebase.js` (`USERS`).
 
 | Rol | Usuario | Puede |
