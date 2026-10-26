@@ -85,10 +85,11 @@ function assignment(p, d) {
     if (e.type === 'otro') return ['OTRO', e.note || 'Otro', 'other'];
   }
   if (p.mode === 'fuera_rotacion') return ['F/R', 'Fuera de rotación', 'out'];
-  if (p.mode === 'fijo') return ['FIJO', p.fixed || 'Horario fijo', 'fixed'];
+  const sunday = d.getDay() === 0;   // los fijos y la rotación de tarde no vienen los domingos
+  if (p.mode === 'fijo') return sunday ? ['DESC', 'Descanso', 'rest'] : ['FIJO', p.fixed || 'Horario fijo', 'fixed'];
   const g = state.groups.find(q => q.id === groupAt(p, d));
   if (!g) return ['F/R', 'Fuera de rotación', 'out'];
-  if (g.fixedShift) return ['FIJO', hoursFor(p, g.fixedShift), 'fixed', isCustom(p, g.fixedShift)];
+  if (g.fixedShift) return sunday ? ['DESC', 'Descanso', 'rest'] : ['FIJO', hoursFor(p, g.fixedShift), 'fixed', isCustom(p, g.fixedShift)];
   const s = pd(state.cycleStart);
   const diff = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - Date.UTC(s.getFullYear(), s.getMonth(), s.getDate());
   const weeks = Math.floor(diff / 604800000);
@@ -101,7 +102,7 @@ function assignment(p, d) {
   //  · sábado de semana de noche: descanso.
   if (dow === 0) {
     if (shiftOf(weeks + 1) === 'Noche') t = 'Noche';
-    else if (t === 'Noche') return ['DESC', 'Descanso', 'rest'];
+    else if (t === 'Noche' || t === 'Tarde') return ['DESC', 'Descanso', 'rest'];
   } else if (dow === 6 && t === 'Noche') {
     return ['DESC', 'Descanso', 'rest'];
   }
@@ -536,7 +537,7 @@ function renderSet() {
   const r = state.rotation;
   $('#rt-set-card').innerHTML = `<div class="rt-set-grid">
     <div><div class="card-title">Secuencia de rotación</div><div class="rt-seq">${r.map((x, i) => `<span>${i + 1}. ${esc(x)}</span>`).join('')}</div>
-    <p class="rt-small" style="margin-top:12px">Cada semana el grupo avanza al siguiente turno de la secuencia. La semana de noche empieza el domingo y el sábado no hay turno noche (descanso).</p></div>
+    <p class="rt-small" style="margin-top:12px">Cada semana el grupo avanza al siguiente turno de la secuencia. La semana de noche empieza el domingo y el sábado no hay turno noche (descanso). Los domingos no vienen el turno tarde ni los horarios fijos.</p></div>
     <form id="rt-sf"><div class="field"><label>Inicio del ciclo (un lunes)</label><input type="date" name="cycle" value="${esc(state.cycleStart)}"></div>
     <div class="rt-two">${r.map((x, i) => `<div class="field"><label>${esc(x)}</label><input type="text" name="h${i}" value="${esc(state.hours[x])}"></div>`).join('')}</div>
     <button class="btn btn-green" type="submit">GUARDAR CONFIGURACIÓN</button></form></div>`;
