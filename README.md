@@ -1,6 +1,6 @@
-# Planning — Romero Panificados
+# Rotación — Romero Panificados
 
-App individual para el planning / rotación de mantenimiento (calendario mensual, personas, grupos, excepciones y configuración).
+App individual para la rotación de mantenimiento (calendario mensual, personas, grupos, excepciones y configuración).
 HTML + CSS + JS puro, sin build ni Node. Datos en Firestore (`planning/config`), en tiempo real.
 
 ## Acceso (igual que la app de Calidad)
