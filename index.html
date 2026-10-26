@@ -1,1 +1,58 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0; url=html/index.html"><title>Planning de Mantenimiento</title></head><body><script>location.replace('html/index.html');</script><p>Abriendo Planning de Mantenimiento…</p></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planning — Romero Panificados</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- LOGIN -->
+<div id="screen-login">
+  <div class="login-box">
+    <div class="login-brand">
+      <span style="font-size:36px">🗓️</span>
+      <div>
+        <div class="login-title">ROMERO</div>
+        <div style="font-family:var(--font-head);font-size:18px;letter-spacing:3px;color:var(--text);line-height:1">PANIFICADOS</div>
+      </div>
+    </div>
+    <div class="login-sub">PLANNING DE MANTENIMIENTO</div>
+    <div class="login-tagline"><span>TI 2026</span></div>
+    <div class="field">
+      <label>Rol</label>
+      <select id="login-role">
+        <option value="">Seleccioná tu rol</option>
+        <option value="admin">⚙️ Admin</option>
+        <option value="visualizador">👁️ Visualizador</option>
+      </select>
+    </div>
+    <div class="field"><label>Usuario</label><input type="text" id="login-user" placeholder="Tu usuario" autocapitalize="none" autocomplete="username" spellcheck="false"></div>
+    <div class="field"><label>Contraseña</label><input type="password" id="login-pass" placeholder="••••••" autocomplete="current-password"></div>
+    <button class="btn" id="login-btn" type="button">INGRESAR</button>
+  </div>
+</div>
+
+<!-- PLANNING -->
+<div id="screen-main" style="display:none;flex-direction:column;min-height:100vh;width:100%">
+  <header class="vis-header">
+    <div class="vis-header-left">
+      <img src="https://www.romeropanificados.com.ar/wp-content/uploads/2023/01/Recurso-8.png" alt="Romero Panificados" class="header-logo">
+    </div>
+    <div class="app-title">PLANNING</div>
+    <div class="hbadge">
+      <span class="user-mail" id="hb-user"></span>
+      <span class="role-tag vis" id="hb-tag"></span>
+      <button class="btn-logout" id="btn-logout" type="button">SALIR</button>
+    </div>
+  </header>
+  <main id="tab-planning"></main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
