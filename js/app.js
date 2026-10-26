@@ -270,7 +270,7 @@ function renderCal() {
     fillFilters([]);
     table.innerHTML = `<tbody><tr><td class="rt-empty">${canEdit
       ? 'Todavía no hay personas cargadas.<br><br><button class="btn btn-sm" id="rt-seed" type="button">CARGAR LOS 3 GRUPOS DE MANTENIMIENTO</button><br><span class="rt-small">o agregalas a mano en la vista PERSONAS</span>'
-      : 'Todavía no hay una rotación cargada. Lo carga Administración.'}</td></tr></tbody>`;
+      : 'Todavía no hay una rotación cargada. La carga Sergio.'}</td></tr></tbody>`;
     return;
   }
   const rows = monthRows();
