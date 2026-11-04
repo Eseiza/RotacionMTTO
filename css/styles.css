@@ -305,6 +305,7 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
 .rt-table td.mañana { background: #332b12; color: #f5b324; }
 .rt-table td.tarde  { background: #3a1e1a; color: #ff6b57; }
 .rt-table td.noche  { background: #1a2535; color: #60a5fa; }
+.rt-table td.turno-x { background: #1b2e26; color: #7fd1a0; }
 .rt-table td.vac    { background: #3b2229; color: #e8798a; }
 .rt-table td.lic    { background: #3a1f2b; color: #d96a8c; }
 .rt-table td.comp   { background: #2a2140; color: #b794f4; }
@@ -470,5 +471,31 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
 @media (max-width: 500px) { .rt-offrow { grid-template-columns: 70px 1fr 90px; gap: 6px; } }
 
 .rt-gshift { border: 1px solid var(--border); border-left: 4px solid var(--muted); border-radius: var(--r-sm); padding: 12px 14px; margin-bottom: 14px; background: var(--surface2); }
-.rt-gshift.mañana { border-left-color: #f5b324; } .rt-gshift.tarde { border-left-color: #ff6b57; } .rt-gshift.noche { border-left-color: #60a5fa; }
+.rt-gshift.mañana { border-left-color: #f5b324; } .rt-gshift.tarde { border-left-color: #ff6b57; } .rt-gshift.noche { border-left-color: #60a5fa; } .rt-gshift.turno-x { border-left-color: #7fd1a0; }
 .rt-gtitle { font-family: var(--font-display, var(--font-mono)); font-size: 18px; letter-spacing: 1px; margin-bottom: 10px; }
+
+/* tarjetas de turnos */
+.rt-cards article.rt-shiftcard { border-top-color: #7fd1a0; }
+.rt-cards article.rt-shiftcard.mañana { border-top-color: #f5b324; } .rt-cards article.rt-shiftcard.tarde { border-top-color: #ff6b57; } .rt-cards article.rt-shiftcard.noche { border-top-color: #60a5fa; }
+.rt-daybtn { display: block; width: 100%; margin-top: 14px; text-align: center; letter-spacing: .5px; }
+
+/* Configuración individual por turno */
+.rt-set-grid-new { grid-template-columns: minmax(260px, .72fr) minmax(420px, 1.6fr); align-items: start; gap: 22px; }
+.rt-config-shift { min-width: 0; border: 1px solid var(--border); border-radius: var(--r-md); padding: 18px; background: var(--surface2); border-top: 3px solid #7fd1a0; }
+.rt-config-shift.mañana { border-top-color: #f5b324; } .rt-config-shift.tarde { border-top-color: #ff6b57; } .rt-config-shift.noche { border-top-color: #60a5fa; }
+.rt-config-head { display:flex; justify-content:space-between; align-items:flex-end; gap:16px; margin-bottom:18px; }
+.rt-config-picker { min-width:190px; margin:0; }
+.rt-config-turn, .rt-config-cycle { border:1px solid var(--border); border-radius:var(--r-sm); padding:15px; margin-bottom:14px; background:var(--surface); }
+.rt-config-turn-title { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+.rt-config-turn-title h3 { margin:0; font-size:21px; }
+.rt-config-footer { display:flex; gap:8px; justify-content:flex-end; margin-top:14px; padding-top:14px; border-top:1px solid var(--border); }
+@media(max-width:800px) { .rt-set-grid-new { grid-template-columns:1fr; } .rt-config-head { align-items:stretch; flex-direction:column; } .rt-config-picker { width:100%; } }
+
+/* turnos con botón propio (v10) */
+.rt-config-turns { min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.rt-config-turns .rt-config-shift { margin: 0; }
+.rt-gshiftrow { border-left: 3px solid #7fd1a0; padding: 6px 0 6px 10px; margin-bottom: 8px; background: var(--surface); border-radius: var(--r-sm); }
+.rt-gshiftrow.mañana { border-left-color: #f5b324; } .rt-gshiftrow.tarde { border-left-color: #ff6b57; } .rt-gshiftrow.noche { border-left-color: #60a5fa; }
+.rt-gshiftrow-head, .rt-gshiftrow-body { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.rt-gshiftrow-body { margin-top: 4px; }
+.rt-daybtn-sm { color: var(--text); border-color: var(--accent2); }
